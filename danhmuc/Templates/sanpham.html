@@ -1,0 +1,54 @@
+{% extends 'common/layout.html'%}
+
+
+{% block body %}
+<body>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+<br> <a class="btn btn-success" href="/addSanpham">Thêm sản phẩm</a>  <p style="font-size: 20px;" class="text-center">Sản phẩm thuộc danh mục: {{danhmuc_name.name}}  </p>
+<hr>
+
+
+<div class="row">
+  {% for sanpham in sanpham_list %}
+    <div class="col-md-3">
+      <figure class="card card-product">
+        <div class="img-wrap"> 
+          <img style="width: 100%;" src="/danhmuc/media/{{sanpham.image}}">
+          <a class="btn-overlay" target="_blank" href="/danhmuc/media/{{sanpham.image}}"><i class="fa fa-search-plus"></i> Xem ảnh</a>
+        </div>
+        <figcaption class="info-wrap">
+          <h6 class="title text-dots"><a href="#">{{sanpham.name}}</a></h6>
+          <div class="action-wrap">
+            <a href="#" class="btn btn-primary btn-sm float-right"> Đặt hàng </a>
+            <div class="price-wrap h5">
+              <span class="price-new">${{sanpham.price}}</span>
+              
+            </div> <!-- price-wrap.// -->
+          </div> <!-- action-wrap -->
+        </figcaption>
+      </figure> <!-- card // -->
+    </div> 
+    {% endfor %}
+
+</div> 
+<!--container end-->
+
+<br><br><br>
+<article class="bg-secondary mb-3">  
+<div class="card-body text-center">
+    <h4 class="text-white">HTML UI KIT <br> Ready to use Bootstrap 4 components and templates </h4>
+<p class="h5 text-white"> for Ecommerce, marketplace, booking websites 
+and product landing pages</p>   <br>
+<p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com  
+ <i class="fa fa-window-restore "></i></a></p>
+</div>
+<br><br><br>
+</article>
+</body>
+
+{% endblock %}
+
+
+

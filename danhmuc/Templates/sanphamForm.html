@@ -1,0 +1,42 @@
+{% extends 'common/layout.html'%}
+
+
+{% block body %}
+
+<body>
+    <div class="container">
+        <h3>Thêm sản phẩm</h3>
+        <form action="/addSanphamform" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">Danh mục sản phẩm</label>
+                <select class=" form-control" name="danhmuc" id="">
+                    {% for danhmuc in danhmuc_list %}
+                    <option value="{{danhmuc.danhmuc_id}}">{{danhmuc.name}}</option>
+                  
+                    {% endfor %}
+                   
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Tên sản phẩm</label>
+               <input name="name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Giá</label>
+             <input name="price" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Số lượng: </label>
+                <input name="sl" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="">Hình ảnh: </label>
+                <input name="image" type="file" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Thêm</button>
+        </form>
+    </div>
+</body>
+
+{% endblock %}
